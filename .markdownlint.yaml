@@ -1,0 +1,18 @@
+# markdownlint configuration — https://github.com/DavidAnson/markdownlint
+default: true
+
+# Line length: allow long lines in prose but not extreme; ignore tables and code blocks.
+MD013:
+  line_length: 120
+  code_blocks: false
+  tables: false
+
+# Files begin with YAML front-matter, not an H1, so disable first-line-h1.
+MD041: false
+
+# Inline HTML (details/summary, comments) is allowed.
+MD033: false
+
+# Allow duplicate headings in different sections.
+MD024:
+  siblings_only: true

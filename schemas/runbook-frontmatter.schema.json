@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/jolarca/jolarca-runbooks/schemas/runbook-frontmatter.schema.json",
+  "title": "Jolarca Runbook Front-Matter",
+  "description": "Metadata contract for every runbook, on-call, continuity, and incident document. Enforced by tools/validate.py in CI.",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "category",
+    "owner",
+    "status",
+    "last_reviewed",
+    "review_due",
+    "related_controls"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Stable, unique kebab-case identifier."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "infrastructure",
+        "database",
+        "network",
+        "security",
+        "application",
+        "on-call",
+        "incident",
+        "continuity",
+        "governance",
+        "compliance",
+        "onboarding"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["sev1", "sev2", "sev3", "sev4"],
+      "description": "Typical incident severity this document addresses."
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Role or team accountable for this document (not an individual for a solo org)."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "active", "deprecated"]
+    },
+    "last_reviewed": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "ISO-8601 date (YYYY-MM-DD) of the last review."
+    },
+    "review_due": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "ISO-8601 date (YYYY-MM-DD) by which the next review is due."
+    },
+    "rto": {
+      "type": "string",
+      "description": "Recovery Time Objective, e.g. '4h'."
+    },
+    "rpo": {
+      "type": "string",
+      "description": "Recovery Point Objective, e.g. '15m'."
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "related_controls": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "description": "Control references as FRAMEWORK:CONTROL, e.g. ISO27001:A.5.29, SOC2:CC7.3, GDPR:Art.32.",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9]+:[A-Za-z0-9.()-]+$"
+      }
+    },
+    "approvals": {
+      "type": "array",
+      "description": "Approval trail for audit evidence.",
+      "items": {
+        "type": "object",
+        "required": ["by", "role", "date"],
+        "properties": {
+          "by": { "type": "string" },
+          "role": { "type": "string" },
+          "date": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          }
+        }
+      }
+    }
+  }
+}
