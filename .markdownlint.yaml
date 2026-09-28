@@ -10,6 +10,11 @@ MD013:
 # Files begin with YAML front-matter, not an H1, so disable first-line-h1.
 MD041: false
 
+# MD025 treats a front-matter `title:` as the document's first H1, which would flag
+# the real `# Title` as a duplicate. Every document here carries front-matter by design.
+MD025:
+  front_matter_title: ""
+
 # Inline HTML (details/summary, comments) is allowed.
 MD033: false
 

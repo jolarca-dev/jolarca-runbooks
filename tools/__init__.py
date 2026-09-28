@@ -49,7 +49,7 @@ def parse_front_matter(text: str) -> tuple[dict | None, str]:
     data = yaml.safe_load(match.group(1)) or {}
     if not isinstance(data, dict):
         raise ValueError("front-matter must be a YAML mapping")
-    return data, text[match.end():]
+    return data, text[match.end() :]
 
 
 def read_front_matter(path: Path) -> tuple[dict | None, str]:

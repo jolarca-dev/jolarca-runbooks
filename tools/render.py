@@ -37,7 +37,7 @@ def _runbook_rows() -> list[dict]:
         if not front_matter:
             continue
         record = dict(front_matter)
-        record["_target"] = rel[len("runbooks/"):]
+        record["_target"] = rel[len("runbooks/") :]
         rows.append(record)
     rows.sort(key=lambda r: (str(r.get("category", "")), str(r.get("id", ""))))
     return rows
@@ -92,7 +92,7 @@ def _docs_index() -> str:
         front_matter, _ = read_front_matter(path)
         parts = rel.split("/")
         group = parts[1] if len(parts) > 2 else "general"
-        target = rel[len("docs/"):]
+        target = rel[len("docs/") :]
         groups.setdefault(group, []).append((_title_for(rel, front_matter), target))
 
     lines = [

@@ -1,17 +1,18 @@
 .DEFAULT_GOAL := help
-PY ?= python3
+PY ?= $(shell if [ -x .venv/bin/python ]; then echo .venv/bin/python; else echo python3; fi)
 
-.PHONY: help install lint validate render control-map test ci clean
+.PHONY: help install lint validate render control-map test drift ci clean
 
 help:  ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-14s\033[0m %s\n", $$1, $$2}'
 
 install:  ## Install dev dependencies (editable)
 	$(PY) -m pip install -e ".[dev]"
-	$(PY) -m pre_commit install || true
+	$(PY) -m pre_commit install
 
 lint:  ## Python lint (ruff) + Markdown internal-link check
 	$(PY) -m ruff check tools tests
+	$(PY) -m ruff format --check tools tests
 	$(PY) -m tools.lint
 
 validate:  ## Validate runbook front-matter against the JSON schema
@@ -26,7 +27,11 @@ control-map:  ## Regenerate docs/compliance/control-mapping.md
 test:  ## Run the test suite
 	$(PY) -m pytest
 
-ci: lint validate test  ## Everything CI runs
+drift: render control-map  ## Fail if generated catalogs or the control map are stale
+	@git diff --exit-code runbooks/README.md docs/index.md docs/compliance/control-mapping.md \
+		|| { echo "ERROR: generated files are stale; commit the regenerated output."; exit 1; }
+
+ci: lint validate test drift  ## Everything CI runs
 	@echo "CI checks passed."
 
 clean:  ## Remove tooling caches
