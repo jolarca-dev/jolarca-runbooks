@@ -9,12 +9,15 @@ description = "Operational runbooks, on-call procedures, and ICT readiness for b
 readme = "README.md"
 requires-python = ">=3.12"
 license = { text = "Proprietary" }
-dependencies = []
+# tools/ imports these at runtime, so the jrb-* console scripts need them
+# even when the dev extra is not installed.
+dependencies = [
+    "jsonschema>=4.21",
+    "pyyaml>=6.0",
+]
 
 [project.optional-dependencies]
 dev = [
-    "jsonschema>=4.21",
-    "pyyaml>=6.0",
     "ruff>=0.16.9,<0.17",
     "pytest>=8.0",
     "pre-commit>=3.7",
