@@ -1,0 +1,16 @@
+# CODEOWNERS — jolarca-runbooks
+#
+# Syntax reference: https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+#
+# Every path in this repository contains compliance, security, or continuity
+# documentation, so all changes default to the repository owner.
+*   @JourneyOfLife
+
+# High-assurance paths: governance, compliance evidence, and the validation
+# tooling that gates every other document. Changes here affect audit output.
+/docs/compliance/         @JourneyOfLife
+/docs/governance/         @JourneyOfLife
+/schemas/                 @JourneyOfLife
+/tools/                   @JourneyOfLife
+/tests/                   @JourneyOfLife
+/.github/                 @JourneyOfLife
