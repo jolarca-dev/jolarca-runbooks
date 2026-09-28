@@ -53,7 +53,6 @@ jobs:
           fi
 
   secret-scan:
-    name: Secret scan (gitleaks, full history)
     runs-on: ubuntu-latest
     steps:
       - name: Check out full history
