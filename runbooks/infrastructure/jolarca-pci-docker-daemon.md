@@ -177,6 +177,12 @@ Closes findings D-03/D-04 (see `ADR-0008`). Data migrates by **physical volume c
   rely on `default-address-pools`, not a named bridge plus `--bip`.
 - **Units fail on boot:** both carry `RequiresMountsFor=/opt/jolarca`; verify the LV mount with
   `findmnt /opt/jolarca` before restarting.
+- **Cutover aborts with `missing source volume data` though the volume exists:** the migration
+  guard `stat`-ed the volume mountpoint under the church data-root (mode `drwx--x--x root:root`)
+  as the non-root operator, who cannot traverse that path — a false negative. Check existence as
+  the principal that runs the copy (`pkexec test -d <path>`, or `docker volume inspect <name>`);
+  the `rsync` itself runs as root and succeeds. Pre-check it in `preflight`, before any `down`,
+  so a bad path never costs a downtime.
 
 ## Escalation
 
