@@ -18,7 +18,7 @@ description: How to recover from a disaster — region failure, data-center loss
 
 # Disaster Recovery Plan (DR)
 
-The DR plan is the technical counterpart to the [BCP](../business-continuity-plan.md). It defines
+The DR plan is the technical counterpart to the [BCP](../bcp/business-continuity-plan.md). It defines
 how to recover infrastructure and data when a disaster exceeds the capacity of routine incident
 response.
 
@@ -53,7 +53,7 @@ Activate the DR plan when:
 ### 1. Assess and declare
 
 - Confirm the scope: what is down, what data is at risk.
-- Declare a disaster on the incident bridge; activate the [BCP](../business-continuity-plan.md).
+- Declare a disaster on the incident bridge; activate the [BCP](../bcp/business-continuity-plan.md).
 
 ### 2. Isolate (if security-related)
 

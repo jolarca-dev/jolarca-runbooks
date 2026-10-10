@@ -72,7 +72,7 @@ Recover services in order of tier (see [`rto-rpo-register.md`](../rto-rpo-regist
 
 - **Annual tabletop exercise:** walk through the BCP with all roles; identify gaps.
 - **After any major change:** re-test if the change affects critical functions.
-- **Test records:** indexed in the [`evidence register`](../docs/compliance/evidence-register.md).
+- **Test records:** indexed in the [`evidence register`](../../docs/compliance/evidence-register.md).
 
 ## Review
 

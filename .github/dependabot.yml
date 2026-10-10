@@ -1,0 +1,26 @@
+version: 2
+
+# Dependabot keeps both the Python toolchain and the CI action SHAs current.
+# Actions are SHA-pinned in .github/workflows/ci.yml, so version updates arrive
+# as pull requests that must be reviewed and merged through the normal gate.
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "chore(deps)"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "ci"
+    commit-message:
+      prefix: "ci(deps)"
