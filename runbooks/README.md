@@ -11,4 +11,5 @@ Add one from [`_templates/runbook-template.md`](_templates/runbook-template.md);
 | app-example-deploy-rollback | [Example — Roll Back a Deployment](application/example-deploy-rollback.md) | application | sev2 | draft | 15m | — |
 | db-example-backup-restore | [Example — Backup and Restore a Database](databases/example-backup-restore.md) | database | sev2 | draft | 4h | 15m |
 | infra-example-service-restart | [Example — Restart a Service](infrastructure/example-service-restart.md) | infrastructure | sev3 | draft | 30m | — |
+| infra-jolarca-pci-docker-daemon | [Operate the Jolarca PCI Docker Daemon](infrastructure/jolarca-pci-docker-daemon.md) | infrastructure | sev2 | draft | 15m | 0m |
 | sec-example-suspected-breach | [Example — Respond to a Suspected Breach](security/example-suspected-breach.md) | security | sev1 | draft | 1h | — |

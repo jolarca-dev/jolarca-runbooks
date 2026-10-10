@@ -13,12 +13,12 @@ Artifact-to-control mapping generated from front-matter `related_controls`. Do n
 | A.5.26 | ISO/IEC 27001:2022 | 3 | Covered |
 | A.5.27 | ISO/IEC 27001:2022 | 2 | Covered |
 | A.5.28 | ISO/IEC 27001:2022 | 3 | Covered |
-| A.5.29 | ISO/IEC 27001:2022 | 8 | Covered |
+| A.5.29 | ISO/IEC 27001:2022 | 9 | Covered |
 | CC7.3 | SOC 2 | 5 | Covered |
 | CC7.4 | SOC 2 | 10 | Covered |
 | CC7.5 | SOC 2 | 8 | Covered |
 | CC9.1 | SOC 2 | 4 | Covered |
-| Art.32 | GDPR | 4 | Covered |
+| Art.32 | GDPR | 5 | Covered |
 
 ## Artifacts by control
 
@@ -27,6 +27,7 @@ Artifact-to-control mapping generated from front-matter `related_controls`. Do n
 - [Backup and Restore](../../continuity/backup-restore.md)
 - [Evidence Register](../../docs/compliance/evidence-register.md)
 - [Example — Backup and Restore a Database](../../runbooks/databases/example-backup-restore.md)
+- [Operate the Jolarca PCI Docker Daemon](../../runbooks/infrastructure/jolarca-pci-docker-daemon.md)
 - [Example — Respond to a Suspected Breach](../../runbooks/security/example-suspected-breach.md)
 
 ### ISO/IEC 27001:2022 — A.5.24
@@ -70,6 +71,11 @@ Artifact-to-control mapping generated from front-matter `related_controls`. Do n
 - [Repository Scaffolding Prompt (Generative Blueprint)](../../docs/governance/scaffolding-prompt.md)
 - [Example — Backup and Restore a Database](../../runbooks/databases/example-backup-restore.md)
 - [Example — Restart a Service](../../runbooks/infrastructure/example-service-restart.md)
+- [Operate the Jolarca PCI Docker Daemon](../../runbooks/infrastructure/jolarca-pci-docker-daemon.md)
+
+### ISO/IEC 27001:2022 — A.8.13
+
+- [Operate the Jolarca PCI Docker Daemon](../../runbooks/infrastructure/jolarca-pci-docker-daemon.md)
 
 ### SOC 2 — CC7.3
 
